@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased;
+  }
+}
+
+@layer components {
+  .editor-container {
+    @apply relative min-h-screen p-4 md:p-8;
+    background-color: #131313;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"),
+      radial-gradient(circle at center, rgba(88, 28, 135, 0.15), transparent 50%);
+    background-repeat: repeat, no-repeat;
+    background-size: 200px 200px, 100% 100%;
+    background-position: center;
+  }
+
+  .editor-wrapper {
+    @apply max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl;
+    background: linear-gradient(to bottom right, rgba(30, 30, 30, 0.8), rgba(15, 15, 15, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .editor-header {
+    @apply p-6 border-b border-gray-800/50;
+    background: linear-gradient(to right, rgba(30, 30, 30, 0.3), rgba(20, 20, 20, 0.5));
+  }
+
+  .editor-content {
+    @apply p-6;
+  }
+
+  .markdown-preview {
+    @apply prose prose-invert prose-lg max-w-none;
+  }
+
+  /* Custom styles for the markdown editor */
+  .w-md-editor {
+    @apply bg-transparent !important;
+    box-shadow: none !important;
+  }
+
+  .w-md-editor-text-pre,
+  .w-md-editor-text-input,
+  .w-md-editor-text {
+    @apply font-serif !important;
+    font-size: 1.125rem !important;
+    line-height: 1.75 !important;
+  }
+
+  .w-md-editor-toolbar {
+    @apply bg-transparent border-0 opacity-50 transition-opacity !important;
+  }
+
+  .w-md-editor-toolbar:hover {
+    @apply opacity-100 !important;
+  }
+
+  .w-md-editor-toolbar > ul > li > button {
+    @apply text-gray-400 hover:text-white !important;
+  }
+}
+
+/* Remove default styles */
+button {
+  @apply border-0 bg-transparent p-0;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom styles */
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+textarea {
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px theme('colors.primary/10');
+}

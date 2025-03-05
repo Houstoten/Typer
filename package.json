@@ -1,0 +1,22 @@
+{
+  "name": "three-js-text",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/three": "^0.174.0",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  },
+  "description": "Three.js application for animated jumping text",
+  "author": "",
+  "license": "ISC"
+}
