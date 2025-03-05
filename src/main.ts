@@ -171,12 +171,7 @@ class TextAnimation {
                 this.text = newText;
                 this.letters.forEach(letter => this.scene.remove(letter));
                 this.letters = [];
-                
-                // Rebuild letters
-                for (const char of newText) {
-                    const displayChar = char === ' ' ? '_' : char;
-                    this.addLetter(displayChar, true);
-                }
+
             } else if (newText.length > this.text.length) {
                 // New character was added
                 const newChar = newText[newText.length - 1];
