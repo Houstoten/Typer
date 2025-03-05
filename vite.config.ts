@@ -6,7 +6,7 @@ export default defineConfig({
     port: 3000,
     open: true
   },
-  base: '/typeme/', // Replace with your repository name
+  base: '/typer/', // Replace with your repository name
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
