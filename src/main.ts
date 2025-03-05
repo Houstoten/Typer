@@ -3,6 +3,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import { Font } from 'three/examples/jsm/loaders/FontLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import ReactGA from 'react-ga4';
 
 class TextAnimation {
     private scene: THREE.Scene;
@@ -29,6 +30,9 @@ class TextAnimation {
     private hasStarted: boolean = false;
 
     constructor() {
+        const TRACKING_ID = "G-YY56MY7HVJ";
+        ReactGA.initialize(TRACKING_ID);
+
         // Initialize audio context
         this.audioContext = new AudioContext();
         this.mousePosition = new THREE.Vector2();
@@ -266,6 +270,12 @@ class TextAnimation {
                 } catch (err) {
                     // User cancelled or sharing failed, fall back to clipboard
                     this.copyToClipboard(shareUrl, notification);
+                } finally {
+                    ReactGA.event({
+                        category: 'Share',
+                        action: 'Share Button Clicked',
+                        label: "Share Button Clicked"
+                    });
                 }
             } else {
                 // Fall back to clipboard on desktop or when sharing isn't supported
