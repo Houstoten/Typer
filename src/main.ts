@@ -206,7 +206,6 @@ class TextAnimation {
         this.replayButton.style.transition = 'background-color 0.3s';
         this.replayButton.style.marginRight = '10px';  // Add margin for share button
         
-        // Create share button
         const shareButton = document.createElement('button');
         shareButton.textContent = '🔗 Share';
         shareButton.style.position = 'fixed';
